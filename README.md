@@ -1,4 +1,4 @@
-# ComposeCharacterViewer
+# Compose Character Viewer
 
 ### A compose version of the Character Viewer app done with TDD.
 
