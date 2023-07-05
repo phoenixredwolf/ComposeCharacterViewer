@@ -1,0 +1,101 @@
+[versions]
+# AndroidX
+core = "1.10.1"
+lifecycleRuntime = "2.6.1"
+
+# Compose
+activityCompose = "1.7.2"
+composeBom = "2023.06.01"
+
+# Dagger-Hilt
+dagger = "2.46.1"
+
+# Kotlin
+kotlinBom = "1.8.22"
+
+# Moshi
+moshi = "1.15.0"
+
+# OkHttp
+okhttp = "4.11.0"
+
+# Plugins
+androidGradelPlugin = "8.0.2"
+kotlinVersion = "1.8.22"
+ksp = "1.8.22-1.0.11"
+
+#Retrofit
+retrofit = "2.9.0"
+
+# Testing
+## Unit
+androidxArch = "2.2.0"
+coroutines = "1.7.1"
+junit = "4.13.2"
+mockitoCore = "5.3.1"
+mockitoInline = "2.21.0"
+mockitoKotlin = "2.1.0"
+
+## Android
+androidxJUnit = "1.1.5"
+androidxTestRunner = "1.5.2"
+barista = "4.2.0"
+espressoCore = "3.5.1"
+okhttpIdling = "1.0.0"
+
+[libraries]
+# Android X
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core" }
+lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntime" }
+
+# Compose
+activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+compose-ui = { group = "androidx.compose.ui", name = "ui" }
+compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+
+# Dagger-Hilt
+dagger-hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "dagger" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "dagger" }
+
+# Kotlin
+kotlin-bom = { group = "org.jetbrains.kotlin", name = "kotlin-bom", version.ref = "kotlinBom" }
+
+# Moshi
+moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshi" }
+moshi-codegen = { group = "com.squareup.moshi", name = "moshi-kotlin-codegen", version.ref = "moshi" }
+
+# OkHttp
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+
+# Retrofit
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-converter = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofit" }
+
+# Testing
+
+## UnitTest
+androidx-arch = { group = "androidx.arch.core", name = "core-testing", version.ref = "androidxArch" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+kotlinx-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
+mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockitoCore" }
+mockito-inline = { group = "org.mockito", name = "mockito-inline", version.ref = "mockitoInline" }
+mockito-kotlin = { group = "com.nhaarman.mockitokotlin2", name = "mockito-kotlin", version.ref = "mockitoKotlin" }
+
+## AndroidTest
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxJUnit" }
+barista = { group = "com.adevinta.android", name = "barista", version.ref = "barista" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+okhttp-idling = { group = "com.jakewharton.espresso", name = "okhttp3-idling-resource", version.ref = "okhttpIdling" }
+test-runner = { group = "androidx.test", name = "runner", version.ref = "androidxTestRunner" }
+ui-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+
+[plugins]
+android-application = { id = "com.android.application", version = "8.0.2" }
+android-library = { id = "com.android.library", version = "8.0.2" }
+dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "dagger" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinVersion" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }

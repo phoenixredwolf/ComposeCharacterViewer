@@ -1,0 +1,110 @@
+plugins {
+    alias libs.plugins.android.application
+    alias libs.plugins.kotlin.android
+    alias libs.plugins.dagger.hilt
+    alias libs.plugins.ksp
+}
+
+android {
+    namespace 'com.example.composecharacterviewer'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.composecharacterviewer"
+        minSdk 26
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+
+        buildConfigField "String", "BASE_URL", "\"https://api.duckduckgo.com/\""
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_18
+        targetCompatibility JavaVersion.VERSION_18
+    }
+    kotlinOptions {
+        jvmTarget = '18'
+    }
+    buildFeatures {
+        compose true
+        buildConfig true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.4.8'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+
+    def composeBom = platform(libs.compose.bom)
+    def kotlinBom = platform(libs.kotlin.bom)
+
+    // AndroidX
+    implementation libs.core.ktx
+    implementation libs.lifecycle.runtime
+
+    // Compose
+    implementation libs.activity.compose
+    implementation(composeBom)
+    implementation libs.compose.material3
+    implementation libs.compose.ui
+    implementation libs.compose.ui.graphics
+    implementation libs.compose.ui.tooling
+
+    // Dagger-Hilt
+    implementation libs.dagger.hilt
+    ksp libs.hilt.compiler
+
+    // Kotlin
+    implementation(kotlinBom)
+
+    // Moshi
+    implementation libs.moshi
+    ksp libs.moshi.codegen
+
+    // OkHttp
+    implementation libs.okhttp
+
+    // Retrofit
+    implementation libs.retrofit
+    implementation libs.retrofit.converter
+
+    // AndroidTesting
+    androidTestImplementation libs.androidx.junit
+    androidTestImplementation libs.okhttp.idling
+    androidTestImplementation libs.test.runner
+    androidTestImplementation(composeBom)
+    androidTestImplementation libs.ui.junit4
+    androidTestImplementation libs.ui.test.manifest
+    androidTestImplementation('com.adevinta.android:barista:4.2.0') {
+        exclude group: 'org.jetbrains.kotlin' // Only if you already use Kotlin in your project
+    }
+
+    // UnitTesting
+    testImplementation libs.androidx.arch
+    testImplementation libs.junit
+    testImplementation libs.kotlinx.coroutines
+    testImplementation libs.mockito.core
+    testImplementation libs.mockito.inline
+    testImplementation libs.mockito.kotlin
+
+    debugImplementation libs.compose.ui.tooling
+    debugImplementation libs.ui.test.manifest
+}
